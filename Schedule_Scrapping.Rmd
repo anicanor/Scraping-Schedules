@@ -2,8 +2,8 @@
 title: "Scraping_Schedules"
 author: "Aaron Nicanor"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ##Libraries
@@ -132,7 +132,7 @@ Scrape_Class_Schedule <- function (url) {
   full_table <- separate(full_table, semester_year, into= c("semester","year"), sep= " ")
 
   #Remove extra columns subject and year (merged into their seperate column by this point)
-  full_table <- subset(full_table, select = -c(subject,course_num))
+  full_table <- select(full_table, -subject, -course_num)
 
   #Move class number to where it should be on the table
   full_table <- full_table[,c(1,2,7,3,4,5,6)]
