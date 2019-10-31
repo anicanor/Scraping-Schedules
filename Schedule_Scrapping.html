@@ -481,7 +481,7 @@ MATH_S_20 &lt;- &quot;http://ems.csuchico.edu/APSS/schedule/spr2020/MATH.shtml&q
   full_table &lt;- separate(full_table, semester_year, into= c(&quot;semester&quot;,&quot;year&quot;), sep= &quot; &quot;)
 
   #Remove extra columns subject and year (merged into their seperate column by this point)
-  full_table &lt;- subset(full_table, select = -c(subject,course_num))
+  full_table &lt;- select(full_table, -subject, -course_num)
 
   #Move class number to where it should be on the table
   full_table &lt;- full_table[,c(1,2,7,3,4,5,6)]
